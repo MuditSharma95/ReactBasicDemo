@@ -31,6 +31,7 @@ function App() {
   const [initialState, setInitialState] = useState(State);
 
   const setValueToList = (item) => {
+
     // setListOfCat([...listOfCat,item]);
     const isExistObj = listOfCat?.list.find((x) => { return x.Id === item.Id });
 
