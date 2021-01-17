@@ -1,19 +1,6 @@
 import React, { useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import Greet from './Components/Greet';
-import Hello from './Components/hello'
-import Welcome from './Components/Welcome'
-import Message from './Components/Message'
-import Counter from './Components/Counter'
-import Eventbind from './Components/Eventbind'
-import ParentComponent from './Components/ParentComponent';
-import Conditional from './Components/Conditional';
-import CounterWithHooks from './Components/CounterWithHooks';
-import Form from './Components/Form';
-import ShareApi from './api/ShareApi';
-import FormHooks from './Components/FormHooks';
-import BoilingVerdict from './Components/BoilingVerdict';
 import ReactDemo from './Components/ReactDemo';
 import RegisterCat from './Components/RegisterCat';
 
@@ -70,32 +57,6 @@ function App() {
       <header className="App-header">
         <RegisterCat data={setValueToList} value={initialState} />
         <ReactDemo data={listOfCat.list} callBacks={editList} />
-        {/* <BoilingVerdict/> */}
-        {/* <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          This is my first React App.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        > */}
-        {/* <Greet/> */}
-        {/* <Welcome/> */}
-        {/* <Hello name='Mudit'>
-            <p>Welcome to React Tuts</p>
-          </Hello> */}
-        {/* </a> */}
-        {/* <Message/> */}
-        {/* <Counter/> */}
-        {/* <Eventbind/> */}
-        {/* <ParentComponent/> */}
-        {/* <Conditional/> */}
-        {/* <CounterWithHooks/> */}
-        {/* <Form /> */}
-        {/* <FormHooks /> */}
-        {/* <ShareApi /> */}
       </header>
     </div>
   );
