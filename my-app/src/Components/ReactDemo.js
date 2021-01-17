@@ -7,7 +7,11 @@ function ReactDemo(props) {
     let count= 0;
 
      function OnClickEdit(item) {
-        props.callBacks(item);
+        props.callBacks(item, "edit");
+    }
+
+    function OnClickDelete(item) {
+        props.callBacks(item, "delete");
      }
     return (
         <div className="ListDiv">
@@ -45,6 +49,7 @@ function ReactDemo(props) {
                             <td>{item.habits}</td>
                             <td>
                                 <input type="button" value="Edit" name ="Edit" onClick={() => OnClickEdit(item.Id)} />
+                                <input type="button" value="Delete" name="Delete" onClick={() => OnClickDelete(item.Id)} />
                             </td>
                         </tr>
                     </tbody>

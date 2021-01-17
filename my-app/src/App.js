@@ -25,6 +25,7 @@ function App() {
     color: '',
     age: '',
     habits: '',
+    buttonText: 'Submit'
   }
 
   const [listOfCat, setListOfCat] = useState({ list: [] });
@@ -53,10 +54,15 @@ function App() {
     setListOfCat({ list: listOfCat.list });
   }
 
-  const editList = (Id) => {
-    
-    const objOfCat = listOfCat?.list.find((item) => { return item.Id === Id })
-    setInitialState(objOfCat);
+  const editList = (Id, type) => {
+    if (type == 'edit') { 
+      const objOfCat = listOfCat?.list.find((item) => { return item.Id === Id })
+      objOfCat.buttonText = 'Update';
+      setInitialState(objOfCat);
+    } else {
+      const listOfPetAfterDelete = listOfCat?.list.filter((item) => { return item.Id !== Id });
+      setListOfCat({ list: listOfPetAfterDelete });
+    }
   }
 
   return (

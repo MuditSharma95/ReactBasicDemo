@@ -62,7 +62,7 @@ export default function RegisterCat(props) {
                 <label>Habits:</label>
                 <textarea value={formValue.habits} name="habits" onChange={OnhandleChanger̥} />
 
-                <button type="submit">Submit</button>
+                <button type="submit">{formValue.buttonText}</button>
             </form>
         </div>
     )
