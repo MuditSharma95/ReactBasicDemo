@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
-import logo from './logo.svg';
+import React, { useState, useEffect } from 'react';
 import './App.css';
-import ReactDemo from './Components/ReactDemo';
-import RegisterCat from './Components/RegisterCat';
+import PetList from './Components/PetList';
+import RegisterForm from './Components/RegisterForm';
+import { getUsers, getUser1 } from './api/ShareApi';
 
 function App() {
 
@@ -16,11 +16,19 @@ function App() {
   }
 
   const [listOfCat, setListOfCat] = useState({ list: [] });
+  const [listOfUsers, setListOfUsers] = useState({ list: [] });
   const [initialState, setInitialState] = useState(State);
+
+  // call-back method to get form value 
+  useEffect(() => {
+    getUsers()
+      .then((res) => setListOfUsers(res.data));
+
+  }, []);
 
   const setValueToList = (item) => {
 
-    // setListOfCat([...listOfCat,item]);
+    //setListOfCat([...listOfCat, item]);
     const isExistObj = listOfCat?.list.find((x) => { return x.Id === item.Id });
 
     if (isExistObj != null) {
@@ -32,7 +40,6 @@ function App() {
           return;
         }
       }
-      
     } else {
       item.Id = listOfCat.list.length + 1;
       listOfCat.list.push(item);
@@ -42,7 +49,7 @@ function App() {
   }
 
   const editList = (Id, type) => {
-    if (type == 'edit') { 
+    if (type == 'edit') {
       const objOfCat = listOfCat?.list.find((item) => { return item.Id === Id })
       objOfCat.buttonText = 'Update';
       setInitialState(objOfCat);
@@ -55,8 +62,8 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <RegisterCat data={setValueToList} value={initialState} />
-        <ReactDemo data={listOfCat.list} callBacks={editList} />
+        <RegisterForm data={setValueToList} value={initialState} />
+        <PetList data={listOfCat.list} callBacks={editList} />
       </header>
     </div>
   );

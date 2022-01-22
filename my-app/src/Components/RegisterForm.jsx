@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 
 
 
-export default function RegisterCat(props) {
+export default function RegisterForm(props) {
 
     const [formValue, setformValue] = useState({});
     const [colors, setColors] = useState([]);
@@ -28,7 +28,6 @@ export default function RegisterCat(props) {
                 age: formValue.age,
                 habits: formValue.habits,
             }
-            console.log(formSubmit)
             props.data(formSubmit);
             setformValue(props.value);
         }
