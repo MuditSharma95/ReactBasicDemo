@@ -36,7 +36,7 @@ export default function RegisterForm(props) {
     return (
         <div className="cat-form">
             <form onSubmit={onSubmit}>
-                <h2>Register Your Pet 🐱</h2>
+                <h2>Register Your Pet <span role='img'>🐱</span></h2>
                 <label>Name*:</label>
                 <input
                     type="text" required name="name"

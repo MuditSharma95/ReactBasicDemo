@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import PetList from './Components/PetList';
 import RegisterForm from './Components/RegisterForm';
-import { getUsers, getUser1 } from './api/ShareApi';
 
 function App() {
 
@@ -16,15 +15,7 @@ function App() {
   }
 
   const [listOfCat, setListOfCat] = useState({ list: [] });
-  const [listOfUsers, setListOfUsers] = useState({ list: [] });
   const [initialState, setInitialState] = useState(State);
-
-  // call-back method to get form value 
-  useEffect(() => {
-    getUsers()
-      .then((res) => setListOfUsers(res.data));
-
-  }, []);
 
   const setValueToList = (item) => {
 
